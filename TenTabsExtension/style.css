@@ -9,8 +9,8 @@ h1 {
 }
 
 .body {
-    padding-left: 15%;
-    padding-right: 15%;
+    margin-left: 25%;
+    margin-right: 25%;
     background-color: #ffffff;
 }
 
@@ -24,34 +24,21 @@ h1 {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-
 }
+
 .button:hover{
     color: #0B0B61;
     transition: all 0.5s ease-in;
 }
 .searchform {
-    padding-left: 10%;
+    padding-left: 10%; 
     padding-right: 10%;
 }
 
-.menu {
-    float: top;
-    list-style: none;
-    padding-left: 48px;
+header {
+    padding-left: 3%;
+    padding-top: 1vh;
 }
-.menu li {
-    display: inline-block;
-}
-.menu li a{
-    color: (50,50,50);
-    padding: 5px 20px;
-    font-size: 14px;
-    fill: #000000 opacity 0.15;
-
-}
-
-
 
 .slidecontainer {
     padding-left: 30%;
