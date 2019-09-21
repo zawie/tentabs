@@ -1,6 +1,7 @@
 // Open ten tab pages when user clicks on extension icon
 chrome.browserAction.onClicked.addListener(function(activeTab) {
     var newURL = "TenTabs.html";
+    numTabs = chrome.tabs.get
     chrome.windows.create({url: chrome.extension.getURL('TenTabs.html') });
 });
 
@@ -21,10 +22,6 @@ function openLinks(linksObj) {
 
 // Runs on new page load
 chrome.webNavigation.onCompleted.addListener(function(data) {
-  console.log("onCompleted")
-  chrome.storage.local.get(['newTab', 'links'], function(result){
-    console.log(result)
-  })
   if (data.url.startsWith("https://www.google.com/search") || data.url.startsWith("http://www.google.com/search")) {
     chrome.storage.local.get(['searched'], function(value){
       console.log(typeof(value.searched))
@@ -45,5 +42,6 @@ chrome.webNavigation.onCompleted.addListener(function(data) {
       }
       linksToBeOpened = null
     }
+    chrome.storage.local.set({'newTab':null, 'links':null})
   })
 });
