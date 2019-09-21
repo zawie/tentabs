@@ -7,10 +7,11 @@ h1 {
     font-family: "Arial";
     padding-left: 40%;
     padding-bottom: 2vh;
+    font-weight: bolder;
+    padding-top: 20vh;
 }
 
-body {
-    padding-top: 30vh;
+.body {
     padding-left: 15%;
     padding-right: 15%;
     background-color: #ffffff;
@@ -36,3 +37,19 @@ body {
     padding-left: 10%;
     padding-right: 10%;
 }
+.menu {
+    float: top;
+    list-style: none;
+    padding-left: 48px;
+}
+.menu li {
+    display: inline-block;
+}
+.menu li a{
+    color: (50,50,50);
+    padding: 5px 20px;
+    font-size: 14px;
+    fill: #000000 opacity 0.15;
+
+}
+
