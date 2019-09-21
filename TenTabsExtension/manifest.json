@@ -6,6 +6,24 @@
   "homepage_url": "http://hack.rice.edu",
   "browser_action": {
   },
+
+  "commands": {
+    "shiftright": {
+      "suggested_key": {
+        "default": "Ctrl+Right",
+        "mac": "Command+Right"
+      },
+      "description": "Shift to right tab"
+    },
+    "shiftleft": {
+      "suggested_key": {
+        "default": "Ctrl+Left",
+        "mac": "Command+Left"
+      },
+      "description": "Shift to left tab"
+    }
+  },
+
   "icons": {
     "16": "icons/rice.png",
     "48": "icons/rice.png",

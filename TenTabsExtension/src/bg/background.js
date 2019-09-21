@@ -45,3 +45,8 @@ chrome.webNavigation.onCompleted.addListener(function(data) {
     chrome.storage.local.set({'newTab':null, 'links':null})
   })
 });
+
+//Shortcuts
+chrome.commands.onCommand.addListener(function(command) {
+  console.log('Command:', command);
+});
