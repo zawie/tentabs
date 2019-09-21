@@ -23,14 +23,17 @@ chrome.browserAction.onClicked.addListener(function(activeTab)
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   console.log(changeInfo.status === 'complete');
   if (changeInfo.status === 'complete'){
-    console.log("Tab " +tabId+ " has finished loading")
-    if (changeInfo.url != null) {
-      if (changeInfo.url.startsWith("https://www.google.com/search") || 
-        changeInfo.url.startsWith("http://www.google.com/search")) {
-        // Add check for chrome stored flag
-        console.log("Search page created");
-        // openLinks(parseText());
+    console.log("Tab " +tabId+ " has finished loading");
+    if (changeInfo.url.startsWith("https://www.google.com/search") || 
+      changeInfo.url.startsWith("http://www.google.com/search")) {
+      // Add check for chrome stored flag
+      val = chrome.storage.get(['searched']);
+      console.log(typeof(val.searched))
+      if (val.searched){
+        console.log('Seach page loaded as a result of tentabs')
       }
+      console.log("Search page created");
+      // openLinks(parseText());
     }
   }
 });
