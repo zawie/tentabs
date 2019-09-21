@@ -11,9 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 var slider = document.getElementById("tabSlider");
+var tabCountDisplay = document.getElementById("tabCount")
 // TODO: save slider value
 slider.oninput = function() {
    console.log(this.value);
+   tabCountDisplay.innerHTML = this.value
    // output.innerHTML = this.value;
  }
 
