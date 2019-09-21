@@ -1,7 +1,22 @@
+h1 {
+    color: #383838;
+}
+
 body {
     padding-top: 30vh;
     padding-left: 15%;
     padding-right: 15%;
-    /* background-color: #383838; */
-    background-color: #a8dfff;
+    background-color: #ffffff;
+}
+
+.button {
+    margin-top: 10px;
+    background-color: #71cbff; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
