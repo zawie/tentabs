@@ -1,5 +1,12 @@
+
+
+
 h1 {
     color: #383838;
+    font-size: 66px;
+    font-family: "Roboto";
+    padding-left: 40%;
+    padding-bottom: 2vh;
 }
 
 body {
@@ -19,4 +26,13 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+
+}
+.button:hover{
+    color: #0B0B61;
+    transition: all 0.5s ease-in;
+}
+.searchform {
+    padding-left: 10%;
+    padding-right: 10%;
 }
