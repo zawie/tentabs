@@ -15,5 +15,5 @@ chrome.extension.onMessage.addListener(
 chrome.browserAction.onClicked.addListener(function(activeTab)
 {
     var newURL = "TenTabs.html";
-    chrome.tabs.create({url: chrome.extension.getURL('TenTabs.html') });
+    chrome.windows.create({url: chrome.extension.getURL('TenTabs.html') });
 });
