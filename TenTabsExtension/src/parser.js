@@ -1,10 +1,12 @@
 //Takes html from a google search and parses it into a table of strings (links)
 export function parseText() {
-    divs = docoument.getElementsByClassName("r") //array of divs from webpages
+    //array of divs from webpages
+    divs = document.getElementsByClassName("r") 
     URLs = Array()
-    for (div in divs) {
-        URL = div.baseURI
-        URLs.push(URL)
+    //get URL from each div and append it to URLs array
+    for (i = 0; i < divs.length; i++) {
+        URLs.push(divs[i].baseURI)
     }
     return URLs
-}
+} 
+parseText()
