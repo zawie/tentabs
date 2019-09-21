@@ -36,7 +36,11 @@ chrome.webNavigation.onCompleted.addListener(function(data) {
       if (value.searched){
         chrome.storage.local.set({'searched': false});
         console.log('About to search')
-        chrome.tabs.sendMessage(data.tabId, {action:"getLinks"}, openLinks);
+        chrome.storage.local.get('numTabs', function(result){
+          console.log("Searched for numTabs")
+          console.log(result)
+          chrome.tabs.sendMessage(data.tabId, {action:"getLinks", numTabs:result.numTabs}, openLinks);
+        })
       }
     });
   }

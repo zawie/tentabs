@@ -7,6 +7,11 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
         var dom = Array.prototype.slice.call( document.getElementsByClassName("r") )
         console.log("About to search for numTabs")
         maxSize = 10
+        console.log(msg.numTabs)
+        if(msg.numTabs != null){
+            maxSize = msg.numTabs
+        }
+        /*
         prom = new Promise(function(resolve, reject){
             chrome.storage.local.get('numTabs', function(result){
                 console.log("Searched for numTabs")
@@ -14,13 +19,15 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
                 resolve(result.numTabs)
             })
         })
-        
-        prom.then(function(numTabs){
+        console.log('maxSize ' + maxSize)
+        promObj = prom.then(function(numTabs){
             if(numTabs != null){
+                console.log('changed numTabs')
                 maxSize = numTabs
             }
-        })
-
+            console.log('maxSize ' + maxSize)
+            })
+        */
         parseSize = dom.length;
         if (parseSize > maxSize) {
             parseSize = maxSize;
@@ -34,6 +41,5 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
         }
         console.log(links)
         sendResponse({'links':links})
-        
     }
 });
