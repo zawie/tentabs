@@ -1,5 +1,5 @@
 //Takes html from a google search and parses it into a table of strings (links)
-export function parseText(maxSize = 10) {
+function parseText(maxSize = 10) {
     //array of divs from webpages
     divs = document.getElementsByClassName("r");
     //Define how long loop will go for
@@ -16,3 +16,5 @@ export function parseText(maxSize = 10) {
     }
     return links
 }
+
+// export { parseText };
