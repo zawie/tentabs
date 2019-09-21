@@ -4,6 +4,8 @@
 //     "sample_setting": "This is how you use Store.js to remember values"
 // });
 
+// import { parseText } from './parseText.js';
+// import { openLinks } from './tabber.js';
 
 //example of using a message handler from the inject scripts
 chrome.extension.onMessage.addListener(
@@ -22,6 +24,14 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   console.log(changeInfo.status === 'complete');
   if (changeInfo.status === 'complete'){
     console.log("Tab " +tabId+ " has finished loading")
+    if (changeInfo.url != null) {
+      if (changeInfo.url.startsWith("https://www.google.com/search") || 
+        changeInfo.url.startsWith("http://www.google.com/search")) {
+        // Add check for chrome stored flag
+        console.log("Search page created");
+        // openLinks(parseText());
+      }
+    }
   }
 });
 /*
@@ -32,3 +42,4 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
  });
 }); 
 */
+
