@@ -18,13 +18,13 @@ chrome.browserAction.onClicked.addListener(function(activeTab)
     chrome.windows.create({url: chrome.extension.getURL('TenTabs.html') });
 });
 
-// Run the parser and tabber if the new tab is a google search
-function onNewTab(tab) {
-  console.log("SCANNING");
-  // TODO: check chrome store variable to only load tabs when
-  // tentabs loaded the google page
-  if (tab.url.startsWith("https://google.com/search")) {
-    console.log("SEARCH LOADED");
-  }
-}
-chrome.tabs.onCreated.addListener(onNewTab);
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  console.log(changeInfo.url);
+}); 
+
+chrome.tabs.onActivated.addListener(function(activeInfo) {
+ // how to fetch tab url using activeInfo.tabid
+ chrome.tabs.get(activeInfo.tabId, function(tab){
+    console.log(tab.url);
+ });
+}); 
