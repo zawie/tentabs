@@ -5,8 +5,6 @@
 <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel = "stylesheet" href = "style.css">
 
-<script src="./src/initial.js"></script>
-
 <body>
 	<h1>TenTabs</h1>
 	<form action="https://www.google.com/search" class="searchform" method="get" name="searchform" target="_blank">
@@ -14,6 +12,10 @@
 		<input autocomplete="on" class="form-control search" name="q" placeholder="Search here" required="required"  type="text">
 		<button class="button" type="submit">Search</button>
 	</form>
+	<div class="slidecontainer">
+		<input type="range" min="1" max="10" value="50" class="slider" id="tabSlider">
+	</div>
 </body>
 
+<script src="./src/initial.js"></script>
 </html>

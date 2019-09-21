@@ -9,3 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
        });
    }, false);
 }, false);
+
+var slider = document.getElementById("tabSlider");
+// TODO: save slider value
+slider.oninput = function() {
+   console.log(this.value);
+   // output.innerHTML = this.value;
+ }
+
