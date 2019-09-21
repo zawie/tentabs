@@ -11,3 +11,9 @@ chrome.extension.onMessage.addListener(
   	chrome.pageAction.show(sender.tab.id);
     sendResponse();
   });
+
+chrome.browserAction.onClicked.addListener(function(activeTab)
+{
+    var newURL = "TenTabs.html";
+    chrome.tabs.create({url: chrome.extension.getURL('TenTabs.html') });
+});
