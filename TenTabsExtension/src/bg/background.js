@@ -36,11 +36,6 @@ function parseText(tabID, maxSize = 10) {
 function openLinks(linksObj) {
   console.log("Running openLinks");
   console.log(linksObj)
-  // console.log(typeof(linksObj))
-  // console.log(linksObj.links)
-  // console.log(typeof(linksObj.links))
-  // console.log(linksObj.links[0])
-  // console.log(linksObj.links['0'])
   var isFirst = true;
   for (url in linksObj.links) {
     //console.log(url);
@@ -81,7 +76,8 @@ chrome.webNavigation.onCompleted.addListener(function(e) {
       if (value.searched){
         console.log('Seach page loaded as a result of tentabs');
         chrome.storage.local.set({'searched': false});
-        console.log("parseText returns: " + parseText(e.tabId));
+        //console.log("parseText returns: " + parseText(e.tabId));
+        parseText(e.tabId)
         //openLinks(links)
       }
     });
