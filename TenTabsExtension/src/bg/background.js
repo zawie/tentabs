@@ -55,7 +55,34 @@ chrome.webNavigation.onCompleted.addListener(function(data) {
   })
 });
 
-//Shortcuts
-chrome.commands.onCommand.addListener(function(command) {
-  console.log('Command:', command);
-});
+//Shortcuts 
+function runCommand (command) {
+  console.log("Command",command);
+  selectedId = 0
+  // Get Current ID
+  chrome.tabs.getSelected(null, function(tab) {
+    selectedId = tab.id
+  });
+  chrome.tabs.getAllInWindow(null, function(tabs){
+    for (var i = 0; i < tabs.length; i++) {
+      var currentId = tabs[i].id 
+      if (selectedId == currentId) {
+        var j = i
+        if (command == "shiftleft") {
+          j -= 1
+        } else if (command == "shiftright") {
+          j += 1
+        }
+        if (j >= tabs.length){
+          j = 0
+        } else if (j < 0) {
+          j = tabs.length - 1
+        }
+        newId = tabs[j].id
+        chrome.tabs.update(newId, {active: true})
+      }
+    }
+  });
+  console.log(command)
+}
+chrome.commands.onCommand.addListener(runCommand);
