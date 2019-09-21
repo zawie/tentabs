@@ -1,5 +1,7 @@
 body {
-    padding-top: 30%;
+    padding-top: 30vh;
     padding-left: 15%;
     padding-right: 15%;
+    /* background-color: #383838; */
+    background-color: #a8dfff;
 }
