@@ -1,5 +1,5 @@
 //Takes html from a google search and parses it into a table of strings (links)
-export function parse_text(doc) {
+export function parseText(doc) {
     divs = doc.getElementsByClassName("r") //array of divs from webpages
     URLs = Array()
     for (div in divs) {
