@@ -8,15 +8,23 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
 function openLinks(linksObj) {
   console.log("Running openLinks");
   console.log(linksObj)
-  var isFirst = true;
-  for (url in linksObj.links) {
-    chrome.tabs.create({ url: linksObj.links[url], active: isFirst});
-    isFirst = false;
-  }
+  //var isFirst = true;
+  //for (url in linksObj.links) {
+    //chrome.tabs.create({ url: linksObj.links[url], active: isFirst});
+    //isFirst = false;
+  chrome.tabs.create({ url: linksObj.links[0]}, function(tab){
+    chrome.storage.local.set({'newTab':tab.id, 'links':linksObj.links})
+    console.log("added " + tab.id)
+  });
+  //}
 }
 
 // Runs on new page load
 chrome.webNavigation.onCompleted.addListener(function(data) {
+  console.log("onCompleted")
+  chrome.storage.local.get(['newTab', 'links'], function(result){
+    console.log(result)
+  })
   if (data.url.startsWith("https://www.google.com/search") || data.url.startsWith("http://www.google.com/search")) {
     chrome.storage.local.get(['searched'], function(value){
       console.log(typeof(value.searched))
@@ -26,4 +34,16 @@ chrome.webNavigation.onCompleted.addListener(function(data) {
       }
     });
   }
+  chrome.storage.local.get(['newTab', 'links'], function(result){
+    if(data.tabId === result.newTab){
+      for (url in result.links) {
+        //chrome.tabs.create({ url: linksObj.links[url], active: isFirst});
+        //isFirst = false;
+        if(url != 0){
+          chrome.tabs.create({ url: result.links[url], active: false});
+        }
+      }
+      linksToBeOpened = null
+    }
+  })
 });
