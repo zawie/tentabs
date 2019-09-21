@@ -18,9 +18,14 @@
     ],
     "persistent": true
   },
+  "content_scripts": [{
+    "matches": ["*://*.google.com/search?q*"],
+    "js": ["src/content.js"]
+  }],
   "permissions": [
     "management",
     "tabs",
-    "storage"
+    "storage",
+    "webNavigation"
   ]
 }
