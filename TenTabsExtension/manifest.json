@@ -20,6 +20,7 @@
     "newtab": "src/override/override.html"
   },
   "permissions": [
-    "management"
+    "management",
+    "tabs"
   ]
 }
