@@ -16,9 +16,6 @@
     "scripts": ["src/bg/background.js"],
     "persistent": true
   },
-  "chrome_url_overrides": {
-    "newtab": "src/override/override.html"
-  },
   "permissions": [
     "management",
     "tabs"
