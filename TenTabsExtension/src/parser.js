@@ -3,7 +3,7 @@ export function parseText() {
     divs = docoument.getElementsByClassName("r") //array of divs from webpages
     URLs = Array()
     for (div in divs) {
-        URL = div.basURI
+        URL = div.baseURI
         URLs.push(URL)
     }
     return URLs
