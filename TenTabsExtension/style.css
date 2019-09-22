@@ -17,6 +17,10 @@ body {
     color: #3974f5;
 }
 
+#questionMark {
+    /* color: #3974f5; */
+}
+
 .button:hover{
     color: #0B0B61;
     transition: all 0.5s ease-in;
