@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "Open multiple search tabs automatically with TenTabs!",
-  "homepage_url": "http://hack.rice.edu",
+  "homepage_url": "https://github.com/Zawie/tentabs",
   "browser_action": {
   },
 
