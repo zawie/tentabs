@@ -10,7 +10,8 @@ h1 {
 body {
     margin-left: 15%;
     margin-right: 15%;
-    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(#eeeeeef3,#ffffff );
 }
 
 #tabNumber {
