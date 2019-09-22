@@ -36,7 +36,7 @@ chrome.webNavigation.onCompleted.addListener(function(data) {
   } else {
       console.log("completed TAb", data.tabId, "new tab is supposed to be", newTab_);
       if(data.tabId === newTab_){
-        newTab_ == null
+        newTab_ = null
         console.log("I am the new tab!");
         for (url in links_) {
           if(url != 0){
