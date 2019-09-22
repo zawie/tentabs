@@ -11,7 +11,9 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
 
 //Takes table of links and opens tabs for each of the links
 function openLinks(linksObj) {
+  console.log("Creating tabs")
   chrome.tabs.create({ url: linksObj.links[0]}, function(tab){
+    console.log("Created a tab going to " + linksObj.links[0])
     chrome.storage.local.set({'newTab':tab.id, 'links':linksObj.links})
   });
 }
