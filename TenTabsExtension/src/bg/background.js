@@ -11,13 +11,12 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
 
 //Takes table of links and opens tabs for each of the links
 
+// GlObaL vArIablEs
 var newTab_ = null;
 var links_ = null;
 
 function openLinks(linksObj) {
-  console.log("Creating tabs")
   chrome.tabs.create({ url: linksObj.links[0]}, function(tab){
-    console.log("Created first tab " + linksObj.links[0])
     newTab_ = tab.id; links_ = linksObj.links;
   });
 }
@@ -34,10 +33,8 @@ chrome.webNavigation.onCompleted.addListener(function(data) {
       }
     });
   } else {
-      console.log("completed TAb", data.tabId, "new tab is supposed to be", newTab_);
-      if(data.tabId === newTab_){
+    if(data.tabId === newTab_){
         newTab_ = null
-        console.log("I am the new tab!");
         for (url in links_) {
           if(url != 0){
             chrome.tabs.create({ url : links_[url], active: false});
