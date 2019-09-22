@@ -35,9 +35,8 @@ chrome.webNavigation.onCompleted.addListener(function(data) {
           chrome.tabs.create({ url: result.links[url], active: false});
         }
       }
-      linksToBeOpened = null
+      chrome.storage.local.set({'newTab':null, 'links':null})
     }
-    chrome.storage.local.set({'newTab':null, 'links':null})
   })
 });
 
