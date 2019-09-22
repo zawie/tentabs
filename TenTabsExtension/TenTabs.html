@@ -4,15 +4,10 @@
 <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel = "stylesheet" href = "style.css">
 
-<header>
-	<a href = "">About</a>
-</header>
 <body>
-	<h1>Tentabs</h1>
+	<h1><span id="tabNumber">Ten</span>tabs</h1>
 	<form action="https://www.google.com/search" class="searchform" method="get" name="searchform" target="_blank">
-		<!-- <input name="sitesearch" type="hidden" value="example.com"> -->
 		<input autocomplete="on" class="form-control search" name="q" placeholder="Search here" required="required"  type="text">
-		<button class="button" type="submit">Search</button>
 	</form>
 	<div class="slidecontainer">
 		<input type="range" min="1" max="10" value="10" class="slider" id="tabSlider">
@@ -24,7 +19,6 @@
 				</span>
 			</p>
 		</div>
-		<!-- <p id = "tabCount"> 10 </p> -->
 	</div> 
 </body>
 <script src="./src/initial.js"></script>
