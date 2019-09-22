@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
       chrome.storage.local.set({'searched': true});
       chrome.storage.local.set({'newTab':null, 'links':null})
       chrome.tabs.getCurrent(function(tab) {
-          chrome.tabs.remove(tab.id, function(){});
+         num = document.getElementById("tabSlider").value
+         chrome.storage.local.set({'numTabs':num})
+         chrome.tabs.remove(tab.id, function(){});
        });
    }, false);
 }, false);
