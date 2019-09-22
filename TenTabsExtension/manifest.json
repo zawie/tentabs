@@ -1,8 +1,8 @@
 {
-  "name": "TenTabs",
-  "version": "0.0.1",
+  "name": "Tentabs",
+  "version": "1.0.0",
   "manifest_version": 2,
-  "description": "Open multiple search tabs automatically with TenTabs!",
+  "description": "Open multiple search tabs automatically with Tentabs!",
   "homepage_url": "https://github.com/Zawie/tentabs",
   "browser_action": {
   },
@@ -10,15 +10,13 @@
   "commands": {
     "shiftright": {
       "suggested_key": {
-        "default": "Ctrl+Right",
-        "mac": "Command+Right"
+        "default": "Alt+Right"
       },
       "description": "Shift to right tab"
     },
     "shiftleft": {
       "suggested_key": {
-        "default": "Ctrl+Left",
-        "mac": "Command+Left"
+        "default": "Alt+Left"
       },
       "description": "Shift to left tab"
     }

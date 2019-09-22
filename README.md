@@ -11,7 +11,7 @@ Tentabs is a chrome extension that will open the first results of a Google searc
 - _Ta da!_
 
 ## Features
-- Specialized shortcuts to iterate through the tabs left or right simply using Command+Right or Command+Left.
+- Specialized shortcuts to iterate through the tabs left or right simply using Option/Alt+Right or Option/Alt+Left.
 - Conservation of original Google list-style search results; just go back a tab.
 - The first tab's loading is priotized.
 - Opens a new window, if and only if other tabs exist in the current window, to prevent clutter.
