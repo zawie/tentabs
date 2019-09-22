@@ -17,6 +17,6 @@ const NUMBERS = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
 slider.oninput = function() {
    chrome.storage.local.set({'numTabs':this.value})
    tabCountTextBox.textContent = NUMBERS[this.value-1];
- }
+}
 
- chrome.storage.local.set({'numTabs':null})
+chrome.storage.local.set({'numTabs':null})
