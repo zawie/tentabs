@@ -8,6 +8,7 @@ Tentabs is a chrome extension that will open the first results of a Google searc
 - Install Tentabs.
 - Click on the Tentabs extension icon in the upper-right corner of your chrome browser.
 - Make your search.
+- _Ta da!_
 
 ## Features
 - Specialized shortcuts to iterate through the tabs left or right simply using Command+Right or Command+Left.
