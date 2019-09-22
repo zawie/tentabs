@@ -73,4 +73,5 @@ function runCommand (command) {
     }
   });
 }
+
 chrome.commands.onCommand.addListener(runCommand);
