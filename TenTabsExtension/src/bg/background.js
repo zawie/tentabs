@@ -1,44 +1,28 @@
 // Open ten tab pages when user clicks on extension icon
 chrome.browserAction.onClicked.addListener(function(activeTab) {
-    var newURL = "TenTabs.html";
     chrome.tabs.query({windowId:chrome.windows.WINDOW_ID_CURRENT}, function(tabsArr){
-      console.log(tabsArr[0].url)
       if(tabsArr.length === 1 && tabsArr[0].url === 'chrome://newtab/'){
-        console.log(tabsArr[0].url)
         chrome.tabs.update({url:'TenTabs.html'})
       } else {
         chrome.windows.create({url: chrome.extension.getURL('TenTabs.html') });
       }
     })
-    
 });
 
 //Takes table of links and opens tabs for each of the links
 function openLinks(linksObj) {
-  console.log("Running openLinks");
-  console.log(linksObj)
-  //var isFirst = true;
-  //for (url in linksObj.links) {
-    //chrome.tabs.create({ url: linksObj.links[url], active: isFirst});
-    //isFirst = false;
   chrome.tabs.create({ url: linksObj.links[0]}, function(tab){
     chrome.storage.local.set({'newTab':tab.id, 'links':linksObj.links})
-    console.log("added " + tab.id)
   });
-  //}
 }
 
 // Runs on new page load
 chrome.webNavigation.onCompleted.addListener(function(data) {
   if (data.url.startsWith("https://www.google.com/search") || data.url.startsWith("http://www.google.com/search")) {
     chrome.storage.local.get(['searched'], function(value){
-      console.log(typeof(value.searched))
       if (value.searched){
         chrome.storage.local.set({'searched': false});
-        console.log('About to search')
         chrome.storage.local.get('numTabs', function(result){
-          console.log("Searched for numTabs")
-          console.log(result)
           chrome.tabs.sendMessage(data.tabId, {action:"getLinks", numTabs:result.numTabs}, openLinks);
         })
       }
@@ -47,8 +31,6 @@ chrome.webNavigation.onCompleted.addListener(function(data) {
   chrome.storage.local.get(['newTab', 'links'], function(result){
     if(data.tabId === result.newTab){
       for (url in result.links) {
-        //chrome.tabs.create({ url: linksObj.links[url], active: isFirst});
-        //isFirst = false;
         if(url != 0){
           chrome.tabs.create({ url: result.links[url], active: false});
         }
@@ -61,7 +43,6 @@ chrome.webNavigation.onCompleted.addListener(function(data) {
 
 //Shortcuts 
 function runCommand (command) {
-  console.log("Command",command);
   selectedId = 0
   // Get Current ID
   chrome.tabs.getSelected(null, function(tab) {
@@ -87,6 +68,5 @@ function runCommand (command) {
       }
     }
   });
-  console.log(command)
 }
 chrome.commands.onCommand.addListener(runCommand);
