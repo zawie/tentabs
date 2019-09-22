@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 var slider = document.getElementById("tabSlider");
-//var tabCountDisplay = document.getElementById("tabCount")
-// TODO: save slider value
+var tabCountTextBox = document.getElementById("tabNumber");
+
+const NUMBERS = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
 slider.oninput = function() {
    //tabCountDisplay.innerHTML = this.value
    chrome.storage.local.set({'numTabs':this.value}, function(){
@@ -21,6 +22,7 @@ slider.oninput = function() {
    chrome.storage.local.get('numTabs', function(result){
       console.log(result.numTabs)
    })
+   tabCountTextBox.textContent = NUMBERS[this.value-1];
  }
 
  chrome.storage.local.set({'numTabs':null})
